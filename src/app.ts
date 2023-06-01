@@ -9,6 +9,7 @@ app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
   res.send('I am fine to get this server')
+  next()
 })
 
 export default app
