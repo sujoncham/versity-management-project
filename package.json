@@ -9,13 +9,13 @@
     "lint:fix": "lint . --fix",
     "prettier:check": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "prettier:fix": "prettier --write .",
-    "lint:prettier": "yarn lint:check && yarn prettier:check"
+    "lint-prettier": "yarn lint:check && yarn prettier:check"
   },
   "keywords": [],
   "author": "sujon chambugong",
   "license": "ISC",
   "lint-staged": {
-    "src/**/*.ts": "yarn lint:prettier"
+    "src/**/*.ts": "yarn lint-prettier"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",

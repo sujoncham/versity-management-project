@@ -1,18 +1,26 @@
-import cors from 'cors'
-import express, { Application, NextFunction, Request, Response } from 'express'
-import routerUser from './app/modules/users/user.route'
+import cors from 'cors';
+import express, { Application } from 'express';
+import globalErrorHandler from './app/middlwares/globalErrorHandler';
+import academicRouter from './app/modules/academicSemester/academic.route';
+import routerUser from './app/modules/user/user.route';
 
-const app: Application = express()
+const app: Application = express();
 
-app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.get('/', async (req: Request, res: Response, next: NextFunction) => {
-  res.send('I am fine to get this server')
-  next()
-})
+app.use('/api/user', routerUser);
+app.use('/api/academic', academicRouter);
 
-app.use('/api/user', routerUser)
+// app.get('/', (req: Request, res: Response, next: NextFunction) => {
+//   // throw new ApiError(400, 'ore bana error')
+//   //   res.send('I am fine to get this server')
+//   //   next("failed to server")
+//   // Promise.reject(new Error('unhandled rejection'))
+//   console.log(x)
+// })
 
-export default app
+app.use(globalErrorHandler);
+
+export default app;

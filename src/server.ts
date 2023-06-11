@@ -1,16 +1,44 @@
-import mongoose from 'mongoose'
-import app from './app'
-import config from './config'
+import { Server } from 'http';
+import mongoose from 'mongoose';
+import app from './app';
+import config from './config';
+import { errorLogger, logger } from './shared/logger';
+
+process.on('uncaughtException', error => {
+  errorLogger.error(error);
+  process.exit(1);
+});
+let server: Server;
 async function main() {
   try {
-    await mongoose.connect(config.data_url as string)
-    console.log('database connected successfully')
-    app.listen(config.port, () => {
-      console.log('my port is', config.port)
-    })
+    await mongoose.connect(config.data_url as string);
+    logger.info('database connected successfully');
+    server = app.listen(config.port, () => {
+      logger.info('my port is', config.port);
+    });
   } catch (error) {
-    console.log(error)
+    errorLogger.error(error);
   }
+
+  process.on('unhandledRejection', error => {
+    // eslint-disable-next-line no-console
+    console.log('unhandled rejection detected, we are closing server .....');
+    if (server) {
+      server.close(() => {
+        errorLogger.error(error);
+        process.exit(1);
+      });
+    } else {
+      process.exit(1);
+    }
+  });
 }
 
-main()
+main();
+
+process.on('SIGTERM', () => {
+  logger.info('Sigterm is recieved');
+  if (server) {
+    server.close();
+  }
+});
