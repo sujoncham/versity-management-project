@@ -94,6 +94,26 @@
             "date": 1686480345723,
             "name": "D:\\next-level-2\\versity-management\\logs\\winston\\errors\\versity-2023-06-11-16-error.log",
             "hash": "6ca681480242e27070239c063609fadfb22828c2b6522ffc2c254a2d2855348c"
+        },
+        {
+            "date": 1686481918646,
+            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\errors\\versity-2023-06-11-17-error.log",
+            "hash": "c8c5b86ca54595367ba60ff434f8dd0ffcc45ffa47874b9f1bbd2bcf75c3af05"
+        },
+        {
+            "date": 1686497070291,
+            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\errors\\versity-2023-06-11-21-error.log",
+            "hash": "5c16bf06ede075ed3fbf8206066eb8aeb51a783987b68fbcf92b4a9d01f2b5c4"
+        },
+        {
+            "date": 1686499550985,
+            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\errors\\versity-2023-06-11-22-error.log",
+            "hash": "3b5cfb07c94dabe3cd59bced5c4cea1c8018a63b6db96e2bf7471aebde6aaf75"
+        },
+        {
+            "date": 1686503399022,
+            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\errors\\versity-2023-06-11-23-error.log",
+            "hash": "0996f792519cddb4796eb51204701d8025bfa396a5f109cd4ade8668bc6c39cf"
         }
     ],
     "hashType": "sha256"

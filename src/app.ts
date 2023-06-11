@@ -1,5 +1,6 @@
 import cors from 'cors';
-import express, { Application } from 'express';
+import express, { Application, NextFunction, Request, Response } from 'express';
+import httpStatus from 'http-status';
 import globalErrorHandler from './app/middlwares/globalErrorHandler';
 import academicRouter from './app/modules/academicSemester/academic.route';
 import routerUser from './app/modules/user/user.route';
@@ -22,5 +23,17 @@ app.use('/api/academic', academicRouter);
 // })
 
 app.use(globalErrorHandler);
-
+app.use((req: Request, res: Response, next: NextFunction) => {
+  res.status(httpStatus.NOT_FOUND).json({
+    success: false,
+    message: 'route not found',
+    errorMasseage: [
+      {
+        path: req.originalUrl,
+        message: 'API Not Found',
+      },
+    ],
+  });
+  next();
+});
 export default app;
