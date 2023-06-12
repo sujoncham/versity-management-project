@@ -24,10 +24,11 @@ export interface IAcademicSemester {
   endMonth: AcademicSemesterMonth;
 }
 
-// title: string;
-//   year: number;
-//   code: string;
-//   startMonth: string;
-//   endMonth: string;
+export interface IPaginationOptons {
+  page?: number;
+  limit?: number;
+  sortBy?: string;
+  sortOrder?: 'asc' | 'desc';
+}
 
 export type AcademicSemesterModel = Model<IAcademicSemester>;
