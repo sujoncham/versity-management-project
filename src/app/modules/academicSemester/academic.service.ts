@@ -1,7 +1,11 @@
 import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
 import { academicTitleCodeMapper } from './academic.constant';
-import { IAcademicSemester, IPaginationOptons } from './academic.interface';
+import {
+  IAcademicSemester,
+  IGenericResponse,
+  IPaginationOptons,
+} from './academic.interface';
 import AcademicSem from './academic.model';
 
 export const academicCreateService = async (
@@ -16,7 +20,17 @@ export const academicCreateService = async (
 
 export const academicAllService = async (
   paginationOptions: IPaginationOptons
-) => {
-  const academicGetService = await AcademicSem.find(paginationOptions);
-  return academicGetService;
+): Promise<IGenericResponse<IAcademicSemester[]>> => {
+  const { page = 1, limit = 10 } = paginationOptions;
+  const skip = (page - 1) * limit;
+  const result = await AcademicSem.find().sort().skip(skip).limit(limit);
+  const total = await AcademicSem.countDocuments();
+  return {
+    meta: {
+      page,
+      limit,
+      total,
+    },
+    data: result,
+  };
 };

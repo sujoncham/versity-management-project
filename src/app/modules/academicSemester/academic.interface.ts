@@ -31,4 +31,13 @@ export interface IPaginationOptons {
   sortOrder?: 'asc' | 'desc';
 }
 
+export interface IGenericResponse<T> {
+  meta: {
+    page: number;
+    limit: number;
+    total: number;
+  };
+  data: T;
+}
+
 export type AcademicSemesterModel = Model<IAcademicSemester>;

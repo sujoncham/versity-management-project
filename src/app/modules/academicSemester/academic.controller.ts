@@ -1,40 +1,37 @@
-import { RequestHandler } from 'express';
+import { NextFunction, Request, Response } from 'express';
+import httpStatus from 'http-status';
 import { pickPagination } from '../../../constants/paginationsPick';
+import { catchAsync } from '../../../shared/catchAsync';
 import { pickPage } from '../../../shared/pickPage';
+import { sendResponse } from '../../../shared/sendResponse';
 import { academicAllService, academicCreateService } from './academic.service';
 
-export const getAllAcademic: RequestHandler = async (req, res, next) => {
-  try {
-    // const paginationOptions = {
-    //   page: Number(req.query.page),
-    //   limit: Number(req.query.limit),
-    //   sortBy: req.query.sortBy,
-    //   sortOrder: req.query.sortOrder,
-    // };
-
+export const getAllAcademic = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
     const paginationOptions = pickPage(req.query, pickPagination);
-
     const result = await academicAllService(paginationOptions);
-    res.status(200).json({
-      status: 'success',
-      message: 'Semester retrieved successfully',
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'semester retrieved successfully',
       data: result,
     });
-  } catch (error) {
-    next(error);
-  }
-};
 
-export const createAcademicSem: RequestHandler = async (req, res, next) => {
-  try {
+    next();
+  }
+);
+
+export const createAcademicSem = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
     const { ...createAcademic } = req.body;
     const result = await academicCreateService(createAcademic);
 
-    res.status(200).json({
-      status: 'success',
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'semester created successfully',
       data: result,
     });
-  } catch (error) {
-    next(error);
+    next();
   }
-};
+);
