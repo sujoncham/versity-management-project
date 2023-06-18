@@ -4,11 +4,11 @@ import app from './app';
 import config from './config';
 import { errorLogger, logger } from './shared/logger';
 
+let server: Server;
 process.on('uncaughtException', error => {
   errorLogger.error(error);
   process.exit(1);
 });
-let server: Server;
 async function main() {
   try {
     await mongoose.connect(config.data_url as string);
@@ -20,18 +20,18 @@ async function main() {
     errorLogger.error(error);
   }
 
-  process.on('unhandledRejection', error => {
-    // eslint-disable-next-line no-console
-    console.log('unhandled rejection detected, we are closing server .....');
-    if (server) {
-      server.close(() => {
-        errorLogger.error(error);
-        process.exit(1);
-      });
-    } else {
-      process.exit(1);
-    }
-  });
+  // process.on('unhandledRejection', error => {
+  //   // eslint-disable-next-line no-console
+  //   console.log('unhandled rejection detected, we are closing server .....');
+  //   if (server) {
+  //     server.close(() => {
+  //       errorLogger.error(error);
+  //       process.exit(1);
+  //     });
+  //   } else {
+  //     process.exit(1);
+  //   }
+  // });
 }
 
 main();

@@ -17,27 +17,23 @@ export type AcademicSemesterTitle = 'Autumn' | 'Summer' | 'Fall';
 export type AcademicSemesterCode = '01' | '02' | '03';
 
 export interface IAcademicSemester {
+  data: IAcademicSemester | null | undefined;
+  meta:
+    | {
+        page?: number | undefined;
+        limit?: number | undefined;
+        total?: number | undefined;
+      }
+    | undefined;
   title: AcademicSemesterTitle;
-  year: number;
+  year: string;
   code: AcademicSemesterCode;
   startMonth: AcademicSemesterMonth;
   endMonth: AcademicSemesterMonth;
 }
 
-export interface IPaginationOptons {
-  page?: number;
-  limit?: number;
-  sortBy?: string;
-  sortOrder?: 'asc' | 'desc';
-}
-
-export interface IGenericResponse<T> {
-  meta: {
-    page: number;
-    limit: number;
-    total: number;
-  };
-  data: T;
-}
-
 export type AcademicSemesterModel = Model<IAcademicSemester>;
+
+export interface IAcademicFilters {
+  searchTerm: string;
+}

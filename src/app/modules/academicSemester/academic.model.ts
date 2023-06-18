@@ -17,7 +17,7 @@ const academicSemSchema = new mongoose.Schema<IAcademicSemester>(
       enum: academicSemesterTitle,
     },
     year: {
-      type: Number,
+      type: String,
       required: true,
     },
     code: {

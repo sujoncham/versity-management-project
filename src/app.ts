@@ -14,13 +14,12 @@ app.use(express.urlencoded({ extended: true }));
 // app.use('/api/academic', academicRouter);
 app.use('/api/v1', router);
 
-// app.get('/', (req: Request, res: Response, next: NextFunction) => {
-//   // throw new ApiError(400, 'ore bana error')
-//   //   res.send('I am fine to get this server')
-//   //   next("failed to server")
-//   // Promise.reject(new Error('unhandled rejection'))
-//   console.log(x)
-// })
+// app.get('/', async (req: Request, res: Response, next: NextFunction) => {
+// throw new ApiError(400, 'ore bana error')
+//   res.send('I am fine to get this server')
+//   next("failed to server")
+// Promise.reject(new Error('unhandled rejection'));
+// });
 
 app.use(globalErrorHandler);
 app.use((req: Request, res: Response, next: NextFunction) => {
