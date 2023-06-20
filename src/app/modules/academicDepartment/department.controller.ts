@@ -5,35 +5,37 @@ import { catchAsync } from '../../../shared/catchAsync';
 import { pickPage } from '../../../shared/pickPage';
 import { sendResponse } from '../../../shared/sendResponse';
 
-import { academicFacultyFilterFields } from './faculty.constant';
-import { IAcademicFaculty } from './faculty.interface';
+import { academicDepartmentFilterFields } from './department.constant';
+import { IAcademicDepartment } from './department.interface';
 import {
-  academicDeleteService,
-  facultyAllService,
-  facultyCreateService,
-  facultySingleService,
-  facultyUpdateService,
-} from './faculty.service';
+  departmentAllService,
+  departmentCreateService,
+  departmentDeleteService,
+  departmentSingleService,
+  departmentUpdateService,
+} from './department.service';
 
-export const getAllFaculty = catchAsync(async (req: Request, res: Response) => {
-  const filters = pickPage(req.query, academicFacultyFilterFields);
+export const getAllDepartment = catchAsync(
+  async (req: Request, res: Response) => {
+    const filters = pickPage(req.query, academicDepartmentFilterFields);
 
-  const paginationOptions = pickPage(req.query, pickPagination);
-  const result = await facultyAllService(filters, paginationOptions);
-  sendResponse<IAcademicFaculty[]>(res, {
-    statusCode: httpStatus.OK,
-    success: true,
-    message: 'semester retrieved successfully',
-    data: result.data,
-  });
-});
+    const paginationOptions = pickPage(req.query, pickPagination);
+    const result = await departmentAllService(filters, paginationOptions);
+    sendResponse<IAcademicDepartment[]>(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'semester retrieved successfully',
+      data: result.data,
+    });
+  }
+);
 
-export const createAcademicFaculty = catchAsync(
+export const createAcademicDepartment = catchAsync(
   async (req: Request, res: Response) => {
     const { ...createFaculty } = req.body;
-    const result = await facultyCreateService(createFaculty);
+    const result = await departmentCreateService(createFaculty);
 
-    sendResponse<IAcademicFaculty>(res, {
+    sendResponse<IAcademicDepartment>(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: 'semester created successfully',
@@ -42,11 +44,11 @@ export const createAcademicFaculty = catchAsync(
   }
 );
 
-export const academicSingleFaculty = catchAsync(
+export const academicSingleDepartment = catchAsync(
   async (req: Request, res: Response) => {
     const id = req.params.id;
-    const result = facultySingleService(id);
-    sendResponse<IAcademicFaculty>(res, {
+    const result = departmentSingleService(id);
+    sendResponse<IAcademicDepartment>(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: 'semester retrieved successfully',
@@ -55,12 +57,12 @@ export const academicSingleFaculty = catchAsync(
   }
 );
 
-export const academicUpdateFaculty = catchAsync(
+export const academicUpdateDepartment = catchAsync(
   async (req: Request, res: Response) => {
     const id = req.params.id;
     const updateData = req.body;
-    const result = facultyUpdateService(id, updateData);
-    sendResponse<IAcademicFaculty>(res, {
+    const result = departmentUpdateService(id, updateData);
+    sendResponse<IAcademicDepartment>(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: 'semester updated successfully',
@@ -68,11 +70,11 @@ export const academicUpdateFaculty = catchAsync(
     });
   }
 );
-export const academicDeleteFaculty = catchAsync(
+export const academicDeleteDepartment = catchAsync(
   async (req: Request, res: Response) => {
     const id = req.params.id;
-    const result = academicDeleteService(id);
-    sendResponse<IAcademicFaculty>(res, {
+    const result = departmentDeleteService(id);
+    sendResponse<IAcademicDepartment>(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: 'semester delete successfully',

@@ -204,6 +204,16 @@
             "date": 1687183786886,
             "name": "D:\\next-level-2\\versity-management\\logs\\winston\\errors\\versity-2023-06-19-20-error.log",
             "hash": "c9c7f447c3d0a11305cd19bdbf8ee91d7bdf48dd78aaef078dbef02deb014e95"
+        },
+        {
+            "date": 1687253493492,
+            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\errors\\versity-2023-06-20-15-error.log",
+            "hash": "1ad18b4178b0e486fc485ce7fc4a778e218e8f63e81930baf4377adb0b551f80"
+        },
+        {
+            "date": 1687255235719,
+            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\errors\\versity-2023-06-20-16-error.log",
+            "hash": "782989c15d2e146c2158be5905cccf57b3f7cc0a26edc3aa8fde7ea56e60d936"
         }
     ],
     "hashType": "sha256"

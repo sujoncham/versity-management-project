@@ -4,21 +4,24 @@ import {
   IGenericResponse,
   IPaginationOptons,
 } from '../../../interfaces/paginationInterface';
-import { academicFacultySearchFields } from './faculty.constant';
-import { IAcademicFaculty, IAcademicFacultyFilters } from './faculty.interface';
-import { default as Faculty } from './faculty.model';
+import { academicDepartmentSearchFields } from './department.constant';
+import {
+  IAcademicDepartment,
+  IAcademicDepartmentFilters,
+} from './department.interface';
+import Department from './department.model';
 
-export const facultyCreateService = async (
-  payload: IAcademicFaculty
-): Promise<IAcademicFaculty> => {
-  const faculty = await Faculty.create(payload);
+export const departmentCreateService = async (
+  payload: IAcademicDepartment
+): Promise<IAcademicDepartment> => {
+  const faculty = await Department.create(payload);
   return faculty;
 };
 
-export const facultyAllService = async (
-  filters: IAcademicFacultyFilters,
+export const departmentAllService = async (
+  filters: IAcademicDepartmentFilters,
   paginationOptions: IPaginationOptons
-): Promise<IGenericResponse<IAcademicFaculty[]>> => {
+): Promise<IGenericResponse<IAcademicDepartment[]>> => {
   // const { page = 1, limit = 10 } = paginationOptions;
   // const skip = (page - 1) * limit;
   const { searchTerm, ...filtersData } = filters;
@@ -26,7 +29,7 @@ export const facultyAllService = async (
   const andConditions = [];
   if (searchTerm) {
     andConditions.push({
-      $or: academicFacultySearchFields.map(field => ({
+      $or: academicDepartmentSearchFields.map(field => ({
         [field]: {
           $regex: searchTerm,
           options: 'i',
@@ -54,11 +57,12 @@ export const facultyAllService = async (
   const whereCondition =
     andConditions.length > 0 ? { $and: andConditions } : {};
 
-  const result = await Faculty.find(whereCondition)
+  const result = await Department.find(whereCondition)
+    .populate('facultyId')
     .sort(sortConditions)
     .skip(skip)
     .limit(limit);
-  const total = await Faculty.countDocuments();
+  const total = await Department.countDocuments();
   return {
     meta: {
       page,
@@ -69,26 +73,26 @@ export const facultyAllService = async (
   };
 };
 
-export const facultySingleService = async (
+export const departmentSingleService = async (
   id: string
-): Promise<IAcademicFaculty | null> => {
-  const result = await Faculty.findById(id);
+): Promise<IAcademicDepartment | null> => {
+  const result = await Department.findById(id);
   return result;
 };
 
-export const facultyUpdateService = async (
+export const departmentUpdateService = async (
   id: string,
-  payload: Partial<IAcademicFaculty>
-): Promise<IAcademicFaculty | null> => {
-  const result = await Faculty.findByIdAndUpdate({ _id: id }, payload, {
+  payload: Partial<IAcademicDepartment>
+): Promise<IAcademicDepartment | null> => {
+  const result = await Department.findByIdAndUpdate({ _id: id }, payload, {
     new: true,
   });
   return result;
 };
 
-export const academicDeleteService = async (
+export const departmentDeleteService = async (
   id: string
-): Promise<IAcademicFaculty | null> => {
-  const result = await Faculty.findByIdAndDelete(id);
+): Promise<IAcademicDepartment | null> => {
+  const result = await Department.findByIdAndDelete(id);
   return result;
 };

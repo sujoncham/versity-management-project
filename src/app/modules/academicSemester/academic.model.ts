@@ -38,6 +38,9 @@ const academicSemSchema = new mongoose.Schema<IAcademicSemester>(
   },
   {
     timestamps: true,
+    toJSON: {
+      virtuals: true,
+    },
   }
 );
 

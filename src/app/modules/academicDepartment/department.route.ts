@@ -2,35 +2,28 @@ import express from 'express';
 import { validateRequest } from '../../middlwares/validateRequest';
 
 import {
-  academicDeleteFaculty,
-  academicSingleFaculty,
-  academicUpdateFaculty,
-  createAcademicFaculty,
-  getAllFaculty,
-} from './faculty.controller';
-import {
-  createFacultyZodSchema,
-  updateAcademicZodSchema,
-} from './faculty.validation';
+  academicDeleteDepartment,
+  academicSingleDepartment,
+  academicUpdateDepartment,
+  createAcademicDepartment,
+  getAllDepartment,
+} from './department.controller';
+import { createDepartmentZodSchema } from './department.validation';
 
-const facultyRouter = express.Router();
+const departmentRouter = express.Router();
 
-facultyRouter.get('/', getAllFaculty);
-facultyRouter.post(
-  '/createAcademicFaculty',
-  validateRequest(createFacultyZodSchema),
-  createAcademicFaculty
+departmentRouter.get('/', getAllDepartment);
+departmentRouter.post(
+  '/createDepartment',
+  validateRequest(createDepartmentZodSchema),
+  createAcademicDepartment
 );
-facultyRouter.get('/:id', academicSingleFaculty);
-facultyRouter.patch(
+departmentRouter.get('/:id', academicSingleDepartment);
+departmentRouter.patch(
   '/:id',
-  validateRequest(updateAcademicZodSchema),
-  academicUpdateFaculty
+  validateRequest(createDepartmentZodSchema),
+  academicUpdateDepartment
 );
-facultyRouter.delete(
-  '/:id',
-  validateRequest(updateAcademicZodSchema),
-  academicDeleteFaculty
-);
+departmentRouter.delete('/:id', academicDeleteDepartment);
 
-export default facultyRouter;
+export default departmentRouter;

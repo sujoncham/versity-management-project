@@ -6,7 +6,7 @@ export const createFacultyZodSchema = z.object({
     }),
   }),
 });
-export const updateAcademicZodSchema = z.object({
+export const updateFacultyZodSchema = z.object({
   body: z.object({
     title: z.string({
       required_error: 'Title is required',

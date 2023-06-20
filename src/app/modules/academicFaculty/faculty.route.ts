@@ -10,7 +10,7 @@ import {
 } from './faculty.controller';
 import {
   createFacultyZodSchema,
-  updateAcademicZodSchema,
+  updateFacultyZodSchema,
 } from './faculty.validation';
 
 const facultyRouter = express.Router();
@@ -24,13 +24,9 @@ facultyRouter.post(
 facultyRouter.get('/:id', academicSingleFaculty);
 facultyRouter.patch(
   '/:id',
-  validateRequest(updateAcademicZodSchema),
+  validateRequest(updateFacultyZodSchema),
   academicUpdateFaculty
 );
-facultyRouter.delete(
-  '/:id',
-  validateRequest(updateAcademicZodSchema),
-  academicDeleteFaculty
-);
+facultyRouter.delete('/:id', academicDeleteFaculty);
 
 export default facultyRouter;

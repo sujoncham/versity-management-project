@@ -1,15 +1,25 @@
 import { z } from 'zod';
-export const createFacultyZodSchema = z.object({
+export const createDepartmentZodSchema = z.object({
   body: z.object({
     title: z.string({
       required_error: 'Title is required',
+    }),
+    facultyId: z.string({
+      required_error: 'Department is required',
     }),
   }),
 });
-export const updateAcademicZodSchema = z.object({
+export const updateDepartmentZodSchema = z.object({
   body: z.object({
-    title: z.string({
-      required_error: 'Title is required',
-    }),
+    title: z
+      .string({
+        required_error: 'Title is required',
+      })
+      .optional(),
+    facultyId: z
+      .string({
+        required_error: 'Department is required',
+      })
+      .optional(),
   }),
 });
