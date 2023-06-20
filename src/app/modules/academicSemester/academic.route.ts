@@ -1,6 +1,7 @@
 import express from 'express';
 import { validateRequest } from '../../middlwares/validateRequest';
 import {
+  academicDeleteSemester,
   academicSingleSemester,
   academicUpdateSemester,
   createAcademicSem,
@@ -24,6 +25,11 @@ academicRouter.patch(
   '/:id',
   validateRequest(updateAcademicZodSchema),
   academicUpdateSemester
+);
+academicRouter.delete(
+  '/:id',
+  validateRequest(updateAcademicZodSchema),
+  academicDeleteSemester
 );
 
 export default academicRouter;

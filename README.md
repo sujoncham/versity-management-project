@@ -27,7 +27,7 @@
   - firstname
   - middlename
   - lastname
-- gender
+- gender -> enum -> male || female
 - dateOfBirth
 - guardian
 - contactNo
@@ -35,7 +35,22 @@
 - email
 - presentAddress
 - permanentAddress
-- academicSemester
+- bloodGroup -> enum -> o+||A+||B+
+- guardian
+  - fathername
+  - fatherOccupation
+  - fatherContact
+  - mothername
+  - motherOccupation
+  - motherContact
+  - address
+- localGuardian
+  - name
+  - occupation
+  - address
+- academicSemester Id
+- academicDepartment Id
+- academicFaculty Id
 
 ### admin
 
@@ -44,7 +59,7 @@
   - firstname
   - middlename
   - lastname
-- gender
+- gender -> enum -> male || female
 - dateOfBirth
 - guardian
 - contactNo
@@ -60,14 +75,17 @@
   - firstname
   - middlename
   - lastname
-- gender
+- gender -> enum -> male || female
 - dateOfBirth
-- guardian
+- email
 - contactNo
 - emergencyContactNo
-- department
-- faculty
+- presentAddress
+- permanentAddress
+- bloodGroup -> enum -> o+||A+||B+
 - designation
+- department name
+- faculty name
 
 ### academic semester
 
@@ -76,3 +94,8 @@
 - code - 01|02|03
 - startMonth - January
 - endMonth - May
+
+### academin department
+
+- title - department title
+- academic faculty- refId
