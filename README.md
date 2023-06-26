@@ -14,11 +14,13 @@
 ### user
 
 - id
-- role
-- password
+- role (append from server, user.service.ts)
+- password (defaul password or created password)
 - createdAt
 - updatedAt
-- studentId || adminId || facultyId
+- studentId (ref_id:mongoose)
+- adminId (ref_id:mongoose)
+- facultyId (ref_id:mongoose)
 
 ### student
 
@@ -29,7 +31,6 @@
   - lastname
 - gender -> enum -> male || female
 - dateOfBirth
-- guardian
 - contactNo
 - emergencyContactNo
 - email

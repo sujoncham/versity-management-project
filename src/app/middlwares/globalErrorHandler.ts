@@ -59,7 +59,7 @@ const globalErrorHandler: ErrorRequestHandler = (
       : [];
   }
 
-  res.status(statusCode).json({
+  res?.status(statusCode).json({
     success: false,
     message,
     errorMessage,

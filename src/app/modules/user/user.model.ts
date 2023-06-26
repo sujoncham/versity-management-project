@@ -16,6 +16,21 @@ const userSchema = new mongoose.Schema<IUser>(
       type: String,
       required: true,
     },
+    student: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Student',
+      required: true,
+    },
+    faculty: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Faculty',
+      required: true,
+    },
+    admin: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Admin',
+      required: true,
+    },
   },
   {
     timestamps: true,

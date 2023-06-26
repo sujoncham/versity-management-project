@@ -1,15 +1,25 @@
 import express from 'express';
 import { validateRequest } from '../../middlwares/validateRequest';
-import { createUser, getAllUsers } from './user.controller';
+import { createStudent, getAllUsers } from './user.controller';
 import { createUserZodSchema } from './user.validation';
 
 const routerUser = express.Router();
 
 routerUser.get('/', getAllUsers);
 routerUser.post(
-  '/createUser',
+  '/createStudent',
   validateRequest(createUserZodSchema),
-  createUser
+  createStudent
+);
+routerUser.post(
+  '/createDepartment',
+  validateRequest(createUserZodSchema),
+  createStudent
+);
+routerUser.post(
+  '/createFaculty',
+  validateRequest(createUserZodSchema),
+  createStudent
 );
 
 export default routerUser;

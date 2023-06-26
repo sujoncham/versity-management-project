@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 
 import { catchAsync } from '../../../shared/catchAsync';
 import User from './user.model';
-import serviceUser from './user.service';
+import { createServiceStudent } from './user.service';
 
 export const getAllUsers = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -15,10 +15,10 @@ export const getAllUsers = catchAsync(
   }
 );
 
-export const createUser = catchAsync(
+export const createStudent = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-    const { user } = req.body;
-    const result = await serviceUser.createServiceUser(user);
+    const { student, ...userData } = req.body;
+    const result = await createServiceStudent(student, userData);
 
     res.status(200).json({
       status: 'success',
