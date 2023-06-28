@@ -2,22 +2,22 @@ import express from 'express';
 import { validateRequest } from '../../middlwares/validateRequest';
 
 import {
-  academicDeleteStudent,
-  academicSingleStudent,
-  academicUpdateStudent,
+  deleteStudent,
   getAllStudent,
+  singleStudent,
+  updateStudent,
 } from './student.controller';
 import { updateStudentZodSchema } from './student.validation';
 
 const studentRouter = express.Router();
 
 studentRouter.get('/', getAllStudent);
-studentRouter.get('/:id', academicSingleStudent);
+studentRouter.get('/:id', singleStudent);
 studentRouter.patch(
   '/:id',
   validateRequest(updateStudentZodSchema),
-  academicUpdateStudent
+  updateStudent
 );
-studentRouter.delete('/:id', academicDeleteStudent);
+studentRouter.delete('/:id', deleteStudent);
 
 export default studentRouter;

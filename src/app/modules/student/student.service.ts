@@ -1,26 +1,25 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import httpStatus from 'http-status';
 import { SortOrder } from 'mongoose';
+import ApiError from '../../../errors/ApiError';
 import { calculatePagination } from '../../../helpers/paginationHelper';
 import {
   IGenericResponse,
   IPaginationOptons,
 } from '../../../interfaces/paginationInterface';
-import { academicDepartmentSearchFields } from './department.constant';
-import {
-  IAcademicDepartment,
-  IAcademicDepartmentFilters,
-} from './department.interface';
-import Department from './department.model';
-import { IStudent } from './student.interface';
+import { studentSearchableFields } from './student.constant';
+import { IStudent, IStudentFilters } from './student.interface';
+import Student from './student.model';
 
 export const studentCreateService = async (
   payload: IStudent
 ): Promise<IStudent> => {
-  const faculty = await Department.create(payload);
+  const faculty = await Student.create(payload);
   return faculty;
 };
 
 export const studentAllService = async (
-  filters: IAcademicDepartmentFilters,
+  filters: IStudentFilters,
   paginationOptions: IPaginationOptons
 ): Promise<IGenericResponse<IStudent[]>> => {
   // const { page = 1, limit = 10 } = paginationOptions;
@@ -30,7 +29,7 @@ export const studentAllService = async (
   const andConditions = [];
   if (searchTerm) {
     andConditions.push({
-      $or: academicDepartmentSearchFields.map(field => ({
+      $or: studentSearchableFields.map(field => ({
         [field]: {
           $regex: searchTerm,
           options: 'i',
@@ -58,14 +57,14 @@ export const studentAllService = async (
   const whereCondition =
     andConditions.length > 0 ? { $and: andConditions } : {};
 
-  const result = await Department.find(whereCondition)
+  const result = await Student.find(whereCondition)
     .populate('facultyId')
     .populate('departmentId')
     .populate('academicId')
     .sort(sortConditions)
     .skip(skip)
     .limit(limit);
-  const total = await Department.countDocuments(whereCondition);
+  const total = await Student.countDocuments(whereCondition);
   return {
     meta: {
       page,
@@ -78,16 +77,46 @@ export const studentAllService = async (
 
 export const studentSingleService = async (
   id: string
-): Promise<IAcademicDepartment | null> => {
-  const result = await Department.findById(id);
+): Promise<IStudent | null> => {
+  const result = await Student.findById(id);
   return result;
 };
 
-export const departmentUpdateService = async (
+export const studentUpdateService = async (
   id: string,
   payload: Partial<IStudent>
 ): Promise<IStudent | null> => {
-  const result = await Department.findByIdAndUpdate({ _id: id }, payload, {
+  const isExist = Student.findOne({ id });
+  if (!isExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'student not found');
+  }
+
+  const { name, guardian, localGuardian, ...studentData } = payload;
+
+  const updatedData: Partial<IStudent> = { ...studentData };
+
+  if (name && Object.keys(name).length) {
+    Object.keys(name).forEach(key => {
+      const nameKey = `name.${key}`;
+      (updatedData as any)[nameKey] = name[key as keyof typeof name];
+    });
+  }
+  if (guardian && Object.keys(guardian).length) {
+    Object.keys(guardian).forEach(key => {
+      const guardianKey = `guardian.${key}`;
+      (updatedData as any)[guardianKey] =
+        guardian[key as keyof typeof guardian];
+    });
+  }
+  if (localGuardian && Object.keys(localGuardian).length) {
+    Object.keys(localGuardian).forEach(key => {
+      const localGuardianKey = `localGuardian.${key}`;
+      (updatedData as any)[localGuardianKey] =
+        localGuardian[key as keyof typeof localGuardian];
+    });
+  }
+
+  const result = await Student.findByIdAndUpdate({ id: id }, updatedData, {
     new: true,
   });
   return result;
@@ -96,6 +125,6 @@ export const departmentUpdateService = async (
 export const studentDeleteService = async (
   id: string
 ): Promise<IStudent | null> => {
-  const result = await Department.findByIdAndDelete(id);
+  const result = await Student.findByIdAndDelete(id);
   return result;
 };

@@ -1,31 +1,48 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 
+import httpStatus from 'http-status';
 import { catchAsync } from '../../../shared/catchAsync';
-import User from './user.model';
-import { createServiceStudent } from './user.service';
+import { sendResponse } from '../../../shared/sendResponse';
+import { IStudent } from '../student/student.interface';
+import {
+  createServiceAdmin,
+  createServiceFaculty,
+  createServiceStudent,
+} from './user.service';
+import { IUser } from './user.interface';
 
-export const getAllUsers = catchAsync(
-  async (req: Request, res: Response, next: NextFunction) => {
-    const users = await User.find();
-    res.status(200).json({
-      status: 'success',
-      data: users,
-    });
-    next();
-  }
-);
+export const createStudent = catchAsync(async (req: Request, res: Response) => {
+  const { student, ...userData } = req.body;
+  const result = await createServiceStudent(student, userData);
 
-export const createStudent = catchAsync(
-  async (req: Request, res: Response, next: NextFunction) => {
-    const { student, ...userData } = req.body;
-    const result = await createServiceStudent(student, userData);
+  sendResponse<IStudent>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'semester created successfully',
+    data: result,
+  });
+});
 
-    res.status(200).json({
-      status: 'success',
-      message: 'User created successfully',
-      data: result,
-    });
+export const createFaculty = catchAsync(async (req: Request, res: Response) => {
+  const { faculty, ...userData } = req.body;
+  const result = await createServiceFaculty(faculty, userData);
 
-    next();
-  }
-);
+  sendResponse<IUser>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'user created successfully!',
+    data: result,
+  });
+});
+
+export const createAdmin = catchAsync(async (req: Request, res: Response) => {
+  const { admin, ...userData } = req.body;
+  const result = await createServiceAdmin(admin, userData);
+
+  sendResponse<IUser>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Admin created successfully!',
+    data: result,
+  });
+});
