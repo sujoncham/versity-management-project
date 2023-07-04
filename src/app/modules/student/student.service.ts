@@ -5,7 +5,7 @@ import ApiError from '../../../errors/ApiError';
 import { calculatePagination } from '../../../helpers/paginationHelper';
 import {
   IGenericResponse,
-  IPaginationOptons,
+  IPaginationOptions,
 } from '../../../interfaces/paginationInterface';
 import { studentSearchableFields } from './student.constant';
 import { IStudent, IStudentFilters } from './student.interface';
@@ -20,7 +20,7 @@ export const studentCreateService = async (
 
 export const studentAllService = async (
   filters: IStudentFilters,
-  paginationOptions: IPaginationOptons
+  paginationOptions: IPaginationOptions
 ): Promise<IGenericResponse<IStudent[]>> => {
   // const { page = 1, limit = 10 } = paginationOptions;
   // const skip = (page - 1) * limit;

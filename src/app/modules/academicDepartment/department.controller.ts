@@ -47,7 +47,8 @@ export const createAcademicDepartment = catchAsync(
 export const academicSingleDepartment = catchAsync(
   async (req: Request, res: Response) => {
     const id = req.params.id;
-    const result = departmentSingleService(id);
+    const result = await departmentSingleService(id);
+
     sendResponse<IAcademicDepartment>(res, {
       statusCode: httpStatus.OK,
       success: true,
@@ -61,7 +62,8 @@ export const academicUpdateDepartment = catchAsync(
   async (req: Request, res: Response) => {
     const id = req.params.id;
     const updateData = req.body;
-    const result = departmentUpdateService(id, updateData);
+    const result = await departmentUpdateService(id, updateData);
+
     sendResponse<IAcademicDepartment>(res, {
       statusCode: httpStatus.OK,
       success: true,
@@ -73,12 +75,13 @@ export const academicUpdateDepartment = catchAsync(
 export const academicDeleteDepartment = catchAsync(
   async (req: Request, res: Response) => {
     const id = req.params.id;
-    const result = departmentDeleteService(id);
+    const result = await departmentDeleteService(id);
+
     sendResponse<IAcademicDepartment>(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: 'semester delete successfully',
-      data: result.data,
+      data: result,
     });
   }
 );

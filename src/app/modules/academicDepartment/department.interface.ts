@@ -1,5 +1,5 @@
 import mongoose, { Model } from 'mongoose';
-import { IAcademicFaculty } from '../academicFaculty/faculty.interface';
+import { IAcademicFaculty } from '../academicFaculty/academicFaculty.interface';
 
 export interface IAcademicDepartment {
   title: string;

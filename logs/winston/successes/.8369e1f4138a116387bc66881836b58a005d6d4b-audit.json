@@ -6,96 +6,6 @@
     "auditLog": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\.8369e1f4138a116387bc66881836b58a005d6d4b-audit.json",
     "files": [
         {
-            "date": 1686738065737,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-14-16-success.log",
-            "hash": "347ccf237cd3f0513251e79b0486ea283838bee2716c109c87abb57d25635f34"
-        },
-        {
-            "date": 1686741001178,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-14-17-success.log",
-            "hash": "ef39c4452048c67bf49656b31a8d41fb1ae79d4f316d854a6213de8363df5e18"
-        },
-        {
-            "date": 1686812475654,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-15-13-success.log",
-            "hash": "5db393321267d733558ae3399e8f7ac61ecd4d0df7d227cf3a31962fab11d2a9"
-        },
-        {
-            "date": 1686897462302,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-16-12-success.log",
-            "hash": "aeb2885b3d932b953c91829899e9207fe06fea746d69cbd143e55ae97647ba23"
-        },
-        {
-            "date": 1686982662985,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-17-12-success.log",
-            "hash": "14e7367b85690bc77cfb3c94caabdf1be8774e01075b760d729073b3b2ef79a9"
-        },
-        {
-            "date": 1686985579295,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-17-13-success.log",
-            "hash": "6a7591ee316434c8cc0df58244899511b4bddcc2ff151208e84e5272cdf7e648"
-        },
-        {
-            "date": 1687068476867,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-18-12-success.log",
-            "hash": "3accaaff1c1b591e55edb9bee5edb625f0e9ffd3991fb2a907d643d9b1bf4675"
-        },
-        {
-            "date": 1687073078206,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-18-13-success.log",
-            "hash": "3bb24acfc1c9cfd075e0181dc1550b4668ced7fb8f86fbeb6cb67c28f06b0ab8"
-        },
-        {
-            "date": 1687083306668,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-18-16-success.log",
-            "hash": "58f5fbb775ceda122ca609804d800770fc5b5d752603d29785263e18381cb013"
-        },
-        {
-            "date": 1687087214950,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-18-17-success.log",
-            "hash": "944b82c82f27f29f552381c13cb9c2a0bee6873d30edf647a65dda4174e9e535"
-        },
-        {
-            "date": 1687093777914,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-18-19-success.log",
-            "hash": "a84c8ce4b67b2c5f8ae2810414932f935aa3226a3b3ab980bfd824e52da20eb0"
-        },
-        {
-            "date": 1687097050068,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-18-20-success.log",
-            "hash": "44f110b12b602bd896dc900285288435311d3e2d31dc83153cf91d27430ffe72"
-        },
-        {
-            "date": 1687100707904,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-18-21-success.log",
-            "hash": "50e44a50e26b12a7dcbfcecd7fd14ce4823827a01a465a1295a32fc82c606fdb"
-        },
-        {
-            "date": 1687104260157,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-18-22-success.log",
-            "hash": "5927a5da2aa04990b13b68dc6545061689cd09907a7dbd0d31f12b04342d5d65"
-        },
-        {
-            "date": 1687169316211,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-19-16-success.log",
-            "hash": "9138732e1ba12974a63c6b1f6acee28b9d6eee15a9229e548a572d9ae28b06aa"
-        },
-        {
-            "date": 1687175226850,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-19-17-success.log",
-            "hash": "43cdf0a8980ac24d56ae7bf013b0898d5e3923f203df9151a9281eb772830099"
-        },
-        {
-            "date": 1687177657577,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-19-18-success.log",
-            "hash": "563e372ae1111a2e540e579a141f1eff7d601351d25a37204bb885d239042159"
-        },
-        {
-            "date": 1687179955317,
-            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-19-19-success.log",
-            "hash": "ad6c0ae75d37e4654715e50c017008d3b8c6f8245eb60fff6d67770c23fd4639"
-        },
-        {
             "date": 1687183786868,
             "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-19-20-success.log",
             "hash": "b059d337a991e797bf7130341d90d5da1912d5bca6c310d86b70f283f595a529"
@@ -134,6 +44,46 @@
             "date": 1687874700006,
             "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-27-20-success.log",
             "hash": "1d48d81f86ee7b3572ca6acba4b8f78da07802be44afd88f58c61f9e27f20dc9"
+        },
+        {
+            "date": 1687955277764,
+            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-28-18-success.log",
+            "hash": "eff6be1ad6b2e034376eb80bbdd9287c689199679a7c1ed54786a24cf99c2cf2"
+        },
+        {
+            "date": 1688035354598,
+            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-29-16-success.log",
+            "hash": "a239f5f072d337d777c1bd2990c5195f90f7ef8e8fd43f8b31345184afb5ee75"
+        },
+        {
+            "date": 1688036634229,
+            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-29-17-success.log",
+            "hash": "3c6df371493665fee981e9f52ea689b70d9777aec28486b10ad284b224a92a2f"
+        },
+        {
+            "date": 1688040167698,
+            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-29-18-success.log",
+            "hash": "0aa58819b0c56ebcf2baa049301e05f2181114590551126f35bbce9d4715e8a3"
+        },
+        {
+            "date": 1688044390724,
+            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-29-19-success.log",
+            "hash": "e34e328b665053ae04b6584d7e2b8f81c61c41623a98b0a3258b2b53fbe5e010"
+        },
+        {
+            "date": 1688054411639,
+            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-06-29-22-success.log",
+            "hash": "2f8f5a3ef55a22f22713f9b02a59d5f1b5e92023ae3bf46d5768304fcf55553a"
+        },
+        {
+            "date": 1688392027728,
+            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-07-03-19-success.log",
+            "hash": "693b3bfb1334a50da83f415f0e34b09724efd41ca35692941457c3d13c9af4bd"
+        },
+        {
+            "date": 1688393294345,
+            "name": "D:\\next-level-2\\versity-management\\logs\\winston\\successes\\versity-2023-07-03-20-success.log",
+            "hash": "3ab7b493a3314d3e28251c6ad819e776f92bda597cb2908ec1a49e0bb65c659f"
         }
     ],
     "hashType": "sha256"

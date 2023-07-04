@@ -18,7 +18,9 @@ export const getAllStudent = catchAsync(async (req: Request, res: Response) => {
   const filters = pickPage(req.query, studentFilterableFields);
 
   const paginationOptions = pickPage(req.query, pickPagination);
+
   const result = await studentAllService(filters, paginationOptions);
+
   sendResponse<IStudent[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -27,23 +29,10 @@ export const getAllStudent = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-// export const createStudent = catchAsync(
-//   async (req: Request, res: Response) => {
-//     const { ...createStudent } = req.body;
-//     const result = await studentCreateService(createStudent);
-
-//     sendResponse<IStudent>(res, {
-//       statusCode: httpStatus.OK,
-//       success: true,
-//       message: 'semester created successfully',
-//       data: result,
-//     });
-//   }
-// );
-
 export const singleStudent = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
-  const result = studentSingleService(id);
+  const result = await studentSingleService(id);
+
   sendResponse<IStudent>(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -55,7 +44,8 @@ export const singleStudent = catchAsync(async (req: Request, res: Response) => {
 export const updateStudent = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const updateData = req.body;
-  const result = studentUpdateService(id, updateData);
+  const result = await studentUpdateService(id, updateData);
+
   sendResponse<IStudent>(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -65,11 +55,12 @@ export const updateStudent = catchAsync(async (req: Request, res: Response) => {
 });
 export const deleteStudent = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
-  const result = studentDeleteService(id);
+  const result = await studentDeleteService(id);
+
   sendResponse<IStudent>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'semester delete successfully',
-    data: result.data,
+    data: result,
   });
 });

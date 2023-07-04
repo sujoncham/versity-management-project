@@ -1,16 +1,16 @@
 import { Request, Response } from 'express';
 import httpStatus from 'http-status';
-import { paginationFields } from '../../../constants/pagination';
-import catchAsync from '../../../shared/catchAsync';
-import pick from '../../../shared/pick';
-import sendResponse from '../../../shared/sendResponse';
+import { pickPagination } from '../../../constants/paginationsPick';
+import { catchAsync } from '../../../shared/catchAsync';
+import { pickPage } from '../../../shared/pickPage';
+import { sendResponse } from '../../../shared/sendResponse';
 import { adminFilterableFields } from './admin.constant';
 import { IAdmin } from './admin.interface';
 import { AdminService } from './admin.service';
 
 const getAllAdmins = catchAsync(async (req: Request, res: Response) => {
-  const filters = pick(req.query, adminFilterableFields);
-  const paginationOptions = pick(req.query, paginationFields);
+  const filters = pickPage(req.query, adminFilterableFields);
+  const paginationOptions = pickPage(req.query, pickPagination);
 
   const result = await AdminService.getAllAdmins(filters, paginationOptions);
 

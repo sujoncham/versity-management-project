@@ -1,4 +1,4 @@
-export interface IPaginationOptons {
+export interface IPaginationOptions {
   page?: number;
   limit?: number;
   sortBy?: string;
@@ -12,4 +12,10 @@ export interface IGenericResponse<T> {
     total?: number;
   };
   data: T;
+}
+
+export interface IGenericErrorResponse {
+  statusCode: number;
+  message: string;
+  errorMessages: IGenericErrorResponse[];
 }

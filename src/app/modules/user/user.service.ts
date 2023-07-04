@@ -2,20 +2,20 @@ import httpStatus from 'http-status';
 import mongoose from 'mongoose';
 import config from '../../../config';
 import ApiError from '../../../errors/ApiError';
-import AcademicSem from '../academicSemester/academic.model';
+import Faculty from '../academicFaculty/academicFaculty.model';
+import AcademicSem from '../academicSemester/academicSem.model';
+import { IAdmin } from '../admin/admin.interface';
+import { Admin } from '../admin/admin.model';
+import { IFaculty } from '../faculty/faculty.interface';
 import { IStudent } from '../student/student.interface';
 import Student from '../student/student.model';
 import { IUser } from './user.interface';
-import User from './user.model';
+import { User } from './user.model';
 import {
   generateAdminId,
   generateFacultyId,
   generateStudentId,
 } from './user.utils';
-import { IAcademicFaculty } from '../academicFaculty/faculty.interface';
-import Faculty from '../academicFaculty/faculty.model';
-import { Admin } from '../admin/admin.model';
-import { IAdmin } from '../admin/admin.interface';
 
 export const createServiceStudent = async (
   student: IStudent,
@@ -79,7 +79,7 @@ export const createServiceStudent = async (
 };
 
 export const createServiceFaculty = async (
-  faculty: IAcademicFaculty,
+  faculty: IFaculty,
   user: IUser
 ): Promise<IUser | null> => {
   // default password

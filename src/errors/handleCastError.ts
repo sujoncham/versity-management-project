@@ -13,6 +13,6 @@ export const handleCastError = (error: mongoose.Error.CastError) => {
   return {
     statusCode,
     message: 'Cast Error',
-    errorMessages: errors,
+    errorMessage: errors,
   };
 };

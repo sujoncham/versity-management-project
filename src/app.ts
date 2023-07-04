@@ -15,10 +15,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/v1', router);
 
 // app.get('/', async (req: Request, res: Response, next: NextFunction) => {
-// throw new ApiError(400, 'ore bana error')
-//   res.send('I am fine to get this server')
-//   next("failed to server")
-// Promise.reject(new Error('unhandled rejection'));
+//   // throw new ApiError(400, 'ore bana error')
+//   res.send('I am fine to get this server');
+//   //   next("failed to server")
+//   // Promise.reject(new Error('unhandled rejection'));
+// });
+
+// app.listen(config.port, () => {
+//   console.log('my port is', config.port);
 // });
 
 app.use(globalErrorHandler);

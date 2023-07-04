@@ -1,6 +1,6 @@
 import express from 'express';
 import { validateRequest } from '../../middlwares/validateRequest';
-import { createFacultyZodSchema } from '../academicFaculty/faculty.validation';
+import { createFacultyZodSchema } from '../academicFaculty/academicFaculty.validation';
 import { createFaculty, createStudent } from './user.controller';
 import { createUserZodSchema } from './user.validation';
 

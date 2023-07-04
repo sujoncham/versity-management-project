@@ -1,4 +1,4 @@
-import { IAcademicSemester } from '../academicSemester/academic.interface';
+import { IAcademicSemester } from '../academicSemester/academicSem.interface';
 import User from './user.model';
 
 export const findLastStudentId = async (): Promise<string | undefined> => {

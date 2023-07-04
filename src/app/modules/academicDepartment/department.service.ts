@@ -2,7 +2,7 @@ import { SortOrder } from 'mongoose';
 import { calculatePagination } from '../../../helpers/paginationHelper';
 import {
   IGenericResponse,
-  IPaginationOptons,
+  IPaginationOptions,
 } from '../../../interfaces/paginationInterface';
 import { academicDepartmentSearchFields } from './department.constant';
 import {
@@ -20,7 +20,7 @@ export const departmentCreateService = async (
 
 export const departmentAllService = async (
   filters: IAcademicDepartmentFilters,
-  paginationOptions: IPaginationOptons
+  paginationOptions: IPaginationOptions
 ): Promise<IGenericResponse<IAcademicDepartment[]>> => {
   // const { page = 1, limit = 10 } = paginationOptions;
   // const skip = (page - 1) * limit;
